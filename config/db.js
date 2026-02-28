@@ -2,14 +2,11 @@
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
-  if (mongoose.connection.readyState >= 1) {
-    return; // already connected
-  }
+  if (mongoose.connection.readyState >= 1) return;
 
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
+    await mongoose.connect(process.env.MONGO_URI, {
       dbName: 'vaultgrow',
-      // modern recommended options (2024–2025)
       serverSelectionTimeoutMS: 5000,
       maxPoolSize: 10,
     });
