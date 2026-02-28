@@ -1,0 +1,15 @@
+const express = require('express');
+const authenticate = require('../middleware/auth');
+const isAdmin = require('../middleware/isAdmin');
+const { handleAdminOverview, handleAdminUsers, handleToggleBlock, handleAdminInvestments, handleConfirmInvestment, handleAdminWithdrawals, handleApproveWithdrawal, handleAdminPayments, handleConfirmPayment } = require('../controllers/admin.controller');
+const router = express.Router();
+router.get('/admin/overview', authenticate, isAdmin, handleAdminOverview);
+router.get('/admin/users', authenticate, isAdmin, handleAdminUsers);
+router.patch('/admin/users/:userId/toggle-block', authenticate, isAdmin, handleToggleBlock);
+router.get('/admin/investments', authenticate, isAdmin, handleAdminInvestments);
+router.patch('/admin/invest/confirm', authenticate, isAdmin, handleConfirmInvestment);
+router.get('/admin/withdrawals', authenticate, isAdmin, handleAdminWithdrawals);
+router.patch('/admin/withdraw/approve', authenticate, isAdmin, handleApproveWithdrawal);
+router.get('/admin/payments', authenticate, isAdmin, handleAdminPayments);
+router.patch('/admin/payment/confirm', authenticate, isAdmin, handleConfirmPayment);
+module.exports = router;

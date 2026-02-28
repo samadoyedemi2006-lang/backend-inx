@@ -1,0 +1,11 @@
+const express = require('express');
+const authenticate = require('../middleware/auth');
+const { handleDashboard, handleTransactions, handleCreateInvestment, handleSubmitPayment, handleReferral, handleWithdraw } = require('../controllers/user.controller');
+const router = express.Router();
+router.get('/user/dashboard', authenticate, handleDashboard);
+router.get('/user/transactions', authenticate, handleTransactions);
+router.post('/invest/create', authenticate, handleCreateInvestment);
+router.post('/payment/submit', authenticate, handleSubmitPayment);
+router.get('/referral', authenticate, handleReferral);
+router.post('/withdraw/request', authenticate, handleWithdraw);
+module.exports = router;
