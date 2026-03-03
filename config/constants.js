@@ -3,7 +3,7 @@ export default {
   REFERRAL_BONUS: 500,
   DAILY_ROI_PERCENT: 15,
   ROI_TOTAL_DAYS: 5,
-  ROI_INTERVAL_MS: 10 * 60 * 1000, // 10 minutes for testing
+  ROI_INTERVAL_MS: 60 * 60 * 1000, // 10 minutes for testing
   MIN_WITHDRAWAL: 4000,
   PLANS: {
     starter: { name: "Starter Growth", amount: 2000 },

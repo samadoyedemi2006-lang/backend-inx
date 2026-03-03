@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import User from "../models/User.js";
 import { signToken } from "../middleware/auth.js";
 
-const WELCOME_BONUS =1000;
+const WELCOME_BONUS = 1000;
 
 function genReferralCode() {
   return "VG" + Math.random().toString(36).substring(2, 8).toUpperCase();
